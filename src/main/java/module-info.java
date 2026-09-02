@@ -7,6 +7,7 @@ module org.uam.sistemadematricula {
     opens org.uam.sistemadematricula to javafx.fxml;
     opens org.uam.sistemadematricula.controllers to javafx.fxml;
     opens org.uam.sistemadematricula.models to javafx.base;
+    opens images to javafx.fxml;
 
     exports org.uam.sistemadematricula;
     exports org.uam.sistemadematricula.models;
