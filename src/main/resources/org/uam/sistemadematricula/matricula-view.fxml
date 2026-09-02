@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="680.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uam.sistemadematricula.controllers.MatriculaController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #00838f; -fx-padding: 12px 20px;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="ivLogo" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <VBox alignment="CENTER_LEFT" spacing="2.0">
+               <children>
+                  <Label text="Centro Nicaragüense de Formación Tecnológica" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="Sistema de Matrícula y Registro de Estudiantes" textFill="#e0f2f1">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox spacing="15.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+         <children>
+            <!-- Formulario a la izquierda -->
+            <VBox maxWidth="430.0" minWidth="410.0" prefWidth="420.0" spacing="12.0" style="-fx-background-color: #f9f9f9; -fx-border-color: #dcdcdc; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-padding: 15px;">
+               <children>
+                  <Label text="Datos del Estudiante" textFill="#00838f">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="200.0" />
+                  <GridPane hgap="10.0" vgap="8.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" minWidth="110.0" prefWidth="120.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="240.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="28.0" />
+                        <RowConstraints minHeight="28.0" />
+                        <RowConstraints minHeight="28.0" />
+                        <RowConstraints minHeight="28.0" />
+                        <RowConstraints minHeight="28.0" />
+                        <RowConstraints minHeight="28.0" />
+                        <RowConstraints minHeight="90.0" />
+                        <RowConstraints minHeight="28.0" />
+                        <RowConstraints minHeight="50.0" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Nombres:" GridPane.rowIndex="0" />
+                        <TextField fx:id="txtNombres" promptText="Ingrese nombres" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label text="Apellidos:" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtApellidos" promptText="Ingrese apellidos" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label text="Usuario:" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtUsuario" promptText="Mínimo 5 caracteres" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        <Label text="Contraseña:" GridPane.rowIndex="3" />
+                        <PasswordField fx:id="txtContrasenia" promptText="Mínimo 8 caracteres" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                        <Label text="Fecha de Nac.:" GridPane.rowIndex="4" />
+                        <DatePicker fx:id="dpFechaNacimiento" maxWidth="1.7976931348623157E308" promptText="dd/mm/aaaa" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                        <Label text="Departamento:" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="cbDepartamento" maxWidth="1.7976931348623157E308" promptText="Seleccione departamento" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                        <Label text="Curso:" GridPane.rowIndex="6" />
+                        <ListView fx:id="lvCursos" prefHeight="90.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                        <Label text="Modalidad:" GridPane.rowIndex="7" />
+                        <HBox alignment="CENTER_LEFT" spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <children>
+                              <RadioButton fx:id="rbPresencial" mnemonicParsing="false" text="Presencial">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tgModalidad" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="rbVirtual" mnemonicParsing="false" text="Virtual" toggleGroup="$tgModalidad" />
+                           </children>
+                        </HBox>
+
+                        <Label text="Horarios:" GridPane.rowIndex="8" />
+                        <GridPane hgap="8.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="20.0" />
+                              <RowConstraints minHeight="20.0" />
+                           </rowConstraints>
+                           <children>
+                              <CheckBox fx:id="chkMatutino" mnemonicParsing="false" text="Matutino" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                              <CheckBox fx:id="chkVespertino" mnemonicParsing="false" text="Vespertino" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              <CheckBox fx:id="chkNocturno" mnemonicParsing="false" text="Nocturno" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="chkSabatino" mnemonicParsing="false" text="Sabatino" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+
+                  <CheckBox fx:id="chkAceptoNormas" mnemonicParsing="false" text="Acepto las normas del centro" />
+
+                  <Separator prefWidth="200.0" />
+
+                  <!-- Botones de acción -->
+                  <HBox alignment="CENTER" spacing="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#registrarOnClick" prefHeight="30.0" prefWidth="85.0" style="-fx-base: #00838f; -fx-text-fill: white; -fx-font-weight: bold;" text="Registrar" />
+                        <Button mnemonicParsing="false" onAction="#actualizarOnClick" prefHeight="30.0" prefWidth="85.0" text="Actualizar" />
+                        <Button mnemonicParsing="false" onAction="#eliminarOnClick" prefHeight="30.0" prefWidth="85.0" style="-fx-base: #d32f2f; -fx-text-fill: white;" text="Eliminar" />
+                        <Button mnemonicParsing="false" onAction="#limpiarOnClick" prefHeight="30.0" prefWidth="85.0" text="Limpiar" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+
+            <!-- Tabla de datos a la derecha -->
+            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Estudiantes Registrados" textFill="#333333">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tvEstudiantes" onMouseClicked="#onTablaMouseClicked" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colNombreCompleto" prefWidth="130.0" text="Nombre Completo" />
+                        <TableColumn fx:id="colDepartamento" prefWidth="95.0" text="Departamento" />
+                        <TableColumn fx:id="colCurso" prefWidth="95.0" text="Curso" />
+                        <TableColumn fx:id="colModalidad" prefWidth="80.0" text="Modalidad" />
+                        <TableColumn fx:id="colHorario" prefWidth="110.0" text="Horario" />
+                        <TableColumn fx:id="colFechaNacimiento" prefWidth="95.0" text="Fecha Nac." />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
