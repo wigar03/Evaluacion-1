@@ -1,4 +1,14 @@
 package org.uam.sistemadematricula.utils;
 
-public interface CRUD {
+import java.util.List;
+
+public interface CRUD<T> {
+
+    void registrar(T objeto);
+
+    List<T> mostrar();
+
+    void actualizar(int index, T objeto);
+
+    void eliminar(int index);
 }

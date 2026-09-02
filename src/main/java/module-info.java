@@ -1,6 +1,7 @@
 module org.uam.sistemadematricula {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.graphics;
 
 
     opens org.uam.sistemadematricula to javafx.fxml;
@@ -10,4 +11,5 @@ module org.uam.sistemadematricula {
     exports org.uam.sistemadematricula;
     exports org.uam.sistemadematricula.models;
     exports org.uam.sistemadematricula.controllers;
+    exports org.uam.sistemadematricula.utils;
 }

@@ -2,10 +2,6 @@ package org.uam.sistemadematricula.models;
 
 import java.time.LocalDate;
 
-/**
- * Modelo que representa a un Estudiante en el Sistema de Matrícula.
- * Basado en los requerimientos del Caso 1: Centro Nicaragüense de Formación Tecnológica.
- */
 public class Estudiante {
 
     private String nombres;
@@ -19,26 +15,9 @@ public class Estudiante {
     private String horario;
     private boolean aceptoNormas;
 
-    /**
-     * Constructor por defecto
-     */
     public Estudiante() {
     }
 
-    /**
-     * Constructor completo con todos los atributos requeridos
-     *
-     * @param nombres          Nombres del estudiante
-     * @param apellidos        Apellidos del estudiante
-     * @param usuario          Nombre de usuario (mínimo 5 caracteres)
-     * @param contrasenia      Contraseña del estudiante (mínimo 8 caracteres)
-     * @param fechaNacimiento  Fecha de nacimiento seleccionada en DatePicker
-     * @param departamento     Departamento de procedencia
-     * @param curso            Curso seleccionado (Programación, Excel, Redes, Diseño Gráfico)
-     * @param modalidad        Modalidad seleccionada (Presencial o Virtual)
-     * @param horario          Horario de clases asignado o seleccionado
-     * @param aceptoNormas     Indica si aceptó las normas institucionales
-     */
     public Estudiante(String nombres, String apellidos, String usuario, String contrasenia,
                       LocalDate fechaNacimiento, String departamento, String curso,
                       String modalidad, String horario, boolean aceptoNormas) {
@@ -53,10 +32,6 @@ public class Estudiante {
         this.horario = horario;
         this.aceptoNormas = aceptoNormas;
     }
-
-    // ==========================================
-    // Métodos de acceso (Getters y Setters)
-    // ==========================================
 
     public String getNombres() {
         return nombres;
@@ -74,11 +49,6 @@ public class Estudiante {
         this.apellidos = apellidos;
     }
 
-    /**
-     * Método de conveniencia para la columna "Nombre Completo" en el TableView
-     *
-     * @return Nombres y apellidos concatenados
-     */
     public String getNombreCompleto() {
         String n = nombres != null ? nombres.trim() : "";
         String a = apellidos != null ? apellidos.trim() : "";
